@@ -1,6 +1,7 @@
 name: solvespace
 base: core18
 summary: Parametric 2d/3d CAD
+icon: icons/solvespace.svg
 adopt-info: solvespace
 description: |
   SOLVESPACE is a free (GPLv3) parametric 3d CAD tool. 
@@ -13,8 +14,8 @@ description: |
   * mechanism design — use the constraint solver to simulate planar or spatial linkages, with pin, ball, or slide joints
   * plane and solid geometry — replace hand-solved trigonometry and spreadsheets with a live dimensioned drawing
 
-grade: devel
-confinement: devmode
+grade: stable
+confinement: strict
 
 layout:
   /usr/share/solvespace:
@@ -41,20 +42,31 @@ plugs:
 apps:
   solvespace:
     command: desktop-launch solvespace
-    plugs: [opengl, x11, unity7, wayland, desktop, home, removable-media, gsettings]
+    plugs: [opengl, x11, unity7, wayland, desktop, home, removable-media, gsettings, network]
+    desktop: usr/share/applications/solvespace.desktop
     environment:
-      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
       __EGL_VENDOR_LIBRARY_DIRS: $SNAP/etc/glvnd/egl_vendor.d:$SNAP/usr/share/glvnd/egl_vendor.d
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
   solvespace-cli:
     command: solvespace-cli
 parts:
+  icon:
+    plugin: dump
+    source: icons
+
   solvespace:
+    after: [desktop-gtk3]
     plugin: cmake
     source: https://github.com/solvespace/solvespace.git
     override-pull: |
       snapcraftctl pull
-      snapcraftctl set-version "$(git describe --always | sed -e 's/-/+git/;y/-/./')"
+      snapcraftctl set-version "3.0.0~git$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)"
       git submodule update --init extlib/libdxfrw
+    override-stage: |
+      snapcraftctl stage
+      # patch desktop file with correct icon path
+      SED_CMD="sed -i -E s|^Icon=(.*)|Icon=\${SNAP}/solvespace.svg|g"
+      $SED_CMD usr/share/applications/solvespace.desktop
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
