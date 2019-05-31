@@ -45,8 +45,7 @@ apps:
     plugs: [opengl, x11, unity7, wayland, desktop, home, removable-media, gsettings, network]
     desktop: usr/share/applications/solvespace.desktop
     environment:
-      __EGL_VENDOR_LIBRARY_DIRS: $SNAP/etc/glvnd/egl_vendor.d:$SNAP/usr/share/glvnd/egl_vendor.d
-      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      __EGL_VENDOR_LIBRARY_DIRS: $SNAP/usr/share/glvnd/egl_vendor.d
   solvespace-cli:
     command: solvespace-cli
 parts:
