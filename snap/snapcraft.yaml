@@ -1,7 +1,7 @@
 name: solvespace
 base: core18
 summary: Parametric 2d/3d CAD
-icon: icons/solvespace.svg
+icon: snap/local/icons/solvespace.svg
 adopt-info: solvespace
 description: |
   SOLVESPACE is a free (GPLv3) parametric 3d CAD tool. 
@@ -51,7 +51,7 @@ apps:
 parts:
   icon:
     plugin: dump
-    source: icons
+    source: snap/local/icons
 
   solvespace:
     after: [desktop-gtk3]
