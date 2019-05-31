@@ -84,53 +84,13 @@ parts:
       - libspnav-dev
     stage-packages:
       - libspnav0
-      - libgl1
-      - libglx0
-      - libglvnd0
-      - libx11-6
-      - libxau6
-      - libxcomposite1
-      - libxcursor1
-      - libxdamage1
-      - libxdmcp6
-      - libxext6
-      - libxfixes3
-      - libxi6
-      - libxinerama1
-      - libxrandr2
-      - libxrender1
-      - libatk1.0-0
-      - libatk-bridge2.0-0
       - libatkmm-1.6-1v5
-      - libatspi2.0-0
-      - libcairo-gobject2
-      - libcairo2
       - libcairomm-1.0-1v5
-      - libdatrie1
-      - libepoxy0
-      - libfontconfig1
-      - libfreetype6
-      - libgtk-3-0
-      - libgdk-pixbuf2.0-0
       - libgtkmm-3.0-1v5
       - libglibmm-2.4-1v5
-      - libgraphite2-3
-      - libharfbuzz0b
-      - libpango-1.0-0
-      - libpangocairo-1.0-0
-      - libpangoft2-1.0-0
       - libpangomm-1.4-1v5
-      - libpixman-1-0
-      - libpng16-16
       - libsigc++-2.0-0v5
-      - libthai0
-      - libwayland-client0
-      - libwayland-cursor0
-      - libwayland-egl1
-      - libxcb-render0
-      - libxcb-shm0
-      - libxcb1
-      - libxkbcommon0
+      - libglew2.0
 
   desktop-gtk3: # will be replaced by gnome extension
     build-packages:
@@ -142,21 +102,21 @@ parts:
     source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
     source-subdir: gtk
     stage-packages:
-    - libxkbcommon0
-    - ttf-ubuntu-font-family
-    - dmz-cursor-theme
-    - light-themes
-    - adwaita-icon-theme
-    - gnome-themes-standard
-    - shared-mime-info
-    - libgtk-3-0
-    - libgdk-pixbuf2.0-0
-    - libglib2.0-bin
-    - libgtk-3-bin
-    - unity-gtk3-module
-    - libappindicator3-1
-    - locales-all
-    - xdg-user-dirs
-    - ibus-gtk3
-    - libibus-1.0-5
-    - fcitx-frontend-gtk3
+      - libxkbcommon0
+      - ttf-ubuntu-font-family
+      - dmz-cursor-theme
+      - light-themes
+      - adwaita-icon-theme
+      - gnome-themes-standard
+      - shared-mime-info
+      - libgtk-3-0
+      - libgdk-pixbuf2.0-0
+      - libglib2.0-bin
+      - libgtk-3-bin
+      - unity-gtk3-module
+      - libappindicator3-1
+      - locales-all
+      - xdg-user-dirs
+      - ibus-gtk3
+      - libibus-1.0-5
+      - fcitx-frontend-gtk3
