@@ -91,6 +91,7 @@ parts:
       - libpangomm-1.4-1v5
       - libsigc++-2.0-0v5
       - libglew2.0
+      - libegl-mesa0
 
   desktop-gtk3: # will be replaced by gnome extension
     build-packages:
