@@ -59,7 +59,7 @@ parts:
     source: https://github.com/solvespace/solvespace.git
     override-pull: |
       snapcraftctl pull
-      snapcraftctl set-version "3.0.0~git$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)"
+      snapcraftctl set-version "3.0~$(git rev-parse --short=8 HEAD)"
       git submodule update --init extlib/libdxfrw extlib/flatbuffers extlib/q3d
     override-stage: |
       snapcraftctl stage
