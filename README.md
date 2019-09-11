@@ -1,4 +1,10 @@
 # solvespace-snap
+
+## Depreceated
+
+> **This code was merged upstream and this repo ist not the source of Snap Store releases.**
+> Go to https://github.com/solvespace/solvespace to find the current implementation.
+
 Snap package for solvespace
 https://snapcraft.io/solvespace
 
